@@ -1,18 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
+import { useNumbersApi } from "./hooks";
 
 function Number() {
-  const [numberValue, setNumberValue] = useState("");
   const { numberId } = useParams();
-
-  useEffect(() => {
-    fetch(`http://numbersapi.com/${numberId}`)
-      .then((res) => res.text())
-      .then((data) => setNumberValue(data));
-  }, [numberId]);
+  const numberValue = useNumbersApi(numberId);
 
   return (
-    <h2>
+    <h2 aria-label="number">
       {numberId} - {numberValue}
     </h2>
   );
