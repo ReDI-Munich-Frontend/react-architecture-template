@@ -1,5 +1,5 @@
 function Home() {
-  return <h2>Hello class of 2021</h2>;
+  return <h3 aria-label="title">Hello class of 2021</h3>;
 }
 
 export { Home };
